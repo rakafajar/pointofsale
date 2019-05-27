@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
-@section('title')
-	Dashboard
-@endsection
-
-@section('breadcrumb')
-	@parent
-	<li>Dashboard</li>
-@endsection
-
 @section('content')
-<div class="row">
-	<div class="col-md-12">
-		<div class="box">
-			<div class="box-body">
-				<h1>Selamat Datang</h1>
-				<h2>Anda Login Sebagia Admin</h2>
-			</div>
-		</div>
+<!-- Breadcrumbs-->
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<a href="#">Dashboard</a>
+	</li>
+	<li class="breadcrumb-item active">Overview</li>
+</ol>
+
+
+<!-- Area Chart Example-->
+<div class="card mb-3">
+	<div class="card-header">
+		<i class="fas fa-chart-area"></i>
+	Area Chart Example</div>
+	<div class="card-body">
+		<canvas id="myAreaChart" width="100%" height="30"></canvas>
 	</div>
+	<div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
 @endsection

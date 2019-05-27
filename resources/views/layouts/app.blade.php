@@ -1,324 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{config('app.locale')}}">
+
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
-  <!-- Tell the browser to be responsive to screen width -->
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <title>Point Of Sale</title>
 
-  <!-- Google Font -->
-  <link rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+
 </head>
 
-<body class="hold-transition skin-blue sidebar-mini">
-  <div class="wrapper">
+<body id="page-top">
 
-    <!-- Main Header -->
-    <header class="main-header">
+  <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <!-- Logo -->
-      <a href="index2.html" class="logo">
-        <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>A</b>LT</span>
-        <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Admin</b>LTE</span>
-      </a>
+    <a class="navbar-brand mr-1" href="index.html">Point Of Sale</a>
 
-      <!-- Header Navbar -->
-      <nav class="navbar navbar-static-top" role="navigation">
-        <!-- Sidebar toggle button-->
-        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-          <span class="sr-only">Toggle navigation</span>
-        </a>
-        <!-- Navbar Right Menu -->
-        <div class="navbar-custom-menu">
-          <ul class="nav navbar-nav">
-            <!-- Messages: style can be found in dropdown.less-->
-            <li class="dropdown messages-menu">
-              <!-- Menu toggle button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-envelope-o"></i>
-                <span class="label label-success">4</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">You have 4 messages</li>
-                <li>
-                  <!-- inner menu: contains the messages -->
-                  <ul class="menu">
-                    <li><!-- start message -->
-                      <a href="#">
-                        <div class="pull-left">
-                          <!-- User Image -->
-                          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                        </div>
-                        <!-- Message title and timestamp -->
-                        <h4>
-                          Support Team
-                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                        </h4>
-                        <!-- The message -->
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <!-- end message -->
-                  </ul>
-                  <!-- /.menu -->
-                </li>
-                <li class="footer"><a href="#">See All Messages</a></li>
-              </ul>
-            </li>
-            <!-- /.messages-menu -->
+    <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+      <i class="fas fa-bars"></i>
+  </button>
 
-            <!-- Notifications Menu -->
-            <li class="dropdown notifications-menu">
-              <!-- Menu toggle button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-bell-o"></i>
-                <span class="label label-warning">10</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">You have 10 notifications</li>
-                <li>
-                  <!-- Inner Menu: contains the notifications -->
-                  <ul class="menu">
-                    <li><!-- start notification -->
-                      <a href="#">
-                        <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                      </a>
-                    </li>
-                    <!-- end notification -->
-                  </ul>
-                </li>
-                <li class="footer"><a href="#">View all</a></li>
-              </ul>
-            </li>
-            <!-- Tasks Menu -->
-            <li class="dropdown tasks-menu">
-              <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-flag-o"></i>
-                <span class="label label-danger">9</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">You have 9 tasks</li>
-                <li>
-                  <!-- Inner menu: contains the tasks -->
-                  <ul class="menu">
-                    <li><!-- Task item -->
-                      <a href="#">
-                        <!-- Task title and progress text -->
-                        <h3>
-                          Design some buttons
-                          <small class="pull-right">20%</small>
-                        </h3>
-                        <!-- The progress bar -->
-                        <div class="progress xs">
-                          <!-- Change the css width attribute to simulate progress -->
-                          <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar"
-                          aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                          <span class="sr-only">20% Complete</span>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <!-- end task item -->
-                </ul>
-              </li>
-              <li class="footer">
-                <a href="#">View all tasks</a>
-              </li>
-            </ul>
-          </li>
-          <!-- User Account Menu -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ 'asset(public/images/'.Auth::user()->foto) }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li class="user-header">
-                <img src="{{ 'asset(public/images/'.Auth::user()->foto) }}" class="img-circle" alt="User Image">
+  <!-- Navbar Search -->
+  <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>
+</form>
 
-                <p>
-                  {{ Auth::user()->name}}
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="{{ route('user.profil') }}" class="btn btn-default btn-flat">Edit Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();" class="btn btn-default btn-flat">Log out</a>
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                  </form>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <!-- End Header -->
+<!-- Navbar -->
+<ul class="navbar-nav ml-auto ml-md-0">
+  <li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-bell fa-fw"></i>
+      <span class="badge badge-danger">9+</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="alertsDropdown">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</li>
+<li class="nav-item dropdown no-arrow mx-1">
+    <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fas fa-envelope fa-fw"></i>
+      <span class="badge badge-danger">7</span>
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="messagesDropdown">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</li>
+<li class="nav-item dropdown">
+    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+      {{ Auth::user()->name }} <span class="caret"></span>
+  </a>
+
+  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+      <a class="dropdown-item" href="{{ route('logout') }}"
+      onclick="event.preventDefault();
+      document.getElementById('logout-form').submit();">
+      {{ __('Logout') }}
+  </a>
+
+  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+  </form>
+</div>
+</li>
+</ul>
+
+</nav>
+
+<div id="wrapper">
 
   <!-- Sidebar -->
-  <aside class="main-header">
-    <section class="sidebar">
-      <ul class="siderbar-menu">
-        <li class="header">Menu Navigasi</li>
-        <li>
-          <a href="{{ route('home') }}">
-            <i class="fa fa-dashboard"></i> 
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <!-- Untuk Memberi Batas Hak Akses -->
-        @if( Auth::user()->level == 1)
-        <li>
-          <a href="{{ route('kategori.index') }}"> 
-            <i class="fa fa-cube"></i>
-            <span>Kategori</span>
-          </a>
-        </li>
+  <ul class="sidebar navbar-nav">
+    <li class="nav-item active">
+      <a class="nav-link" href="{{ route('home') }}">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Dashboard</span>
+    </a>
+</li>
 
-        <li>
-          <a href="{{ route('produk.index') }}"> 
-            <i class="fa fa-cubes"></i>
-            <span>Produk</span>
-          </a>
-        </li>
+@if( Auth::user()->level ==1 )
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fas fa-fw fa-folder"></i>
+    <span>Pages</span>
+</a>
+<div class="dropdown-menu" aria-labelledby="pagesDropdown">
+    <h6 class="dropdown-header">Login Screens:</h6>
+    <a class="dropdown-item" href="login.html">Login</a>
+    <a class="dropdown-item" href="register.html">Register</a>
+    <a class="dropdown-item" href="forgot-password.html">Forgot Password</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header">Other Pages:</h6>
+    <a class="dropdown-item" href="404.html">404 Page</a>
+    <a class="dropdown-item" href="blank.html">Blank Page</a>
+</div>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="charts.html">
+    <i class="fas fa-fw fa-chart-area"></i>
+    <span>Charts</span></a>
+</li>
+@else
+<li class="nav-item">
+    <a class="nav-link" href="tables.html">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Tables</span></a>
+  </li>
+@endif
+</ul>
 
-        <li>
-          <a href="{{ route('member.index') }}"> 
-            <i class="fa fa-credit-card"></i>
-            <span>Member</span>
-          </a>
-        </li>
+<div id="content-wrapper">
 
-        <li>
-          <a href="{{ route('supplier.index') }}"> 
-            <i class="fa fa-truck"></i>
-            <span>Supplier</span>
-          </a>
-        </li>
+    <div class="container-fluid">
+    @yield('content')
 
-        <li>
-          <a href="{{ route('pengeluaran.index') }}"> 
-            <i class="fa fa-money"></i>
-            <span>Pengeluaran</span>
-          </a>
-        </li>
+</div>
+<!-- /.container-fluid -->
 
-        <li>
-          <a href="{{ route('kategori.index') }}"> 
-            <i class="fa fa-cube"></i>
-            <span>Kategori</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ route('user.index') }}"> 
-            <i class="fa fa-user"></i>
-            <span>User</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ route('penjualan.index') }}"> 
-            <i class="fa fa-upload"></i>
-            <span>Penjualan</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ route('pembelian.index') }}"> 
-            <i class="fa fa-download"></i>
-            <span>Pembelian</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ route('laporan.index') }}"> 
-            <i class="fa fa-file-pdf-o"></i>
-            <span>Laporan</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ route('setting.index') }}"> 
-            <i class="fa fa-gears"></i>
-            <span>Setting</span>
-          </a>
-        </li>
-
-        @else
-        <li>
-          <a href="{{ route('transaksi.index') }}"> 
-            <i class="fa fa-shopping-cart"></i>
-            <span>Transaksi</span>
-          </a>
-        </li>
-
-        <li>
-          <a href="{{ route('transaksi.new') }}"> 
-            <i class="fa fa-cart-plus"></i>
-            <span>Transaksi</span>
-          </a>
-        </li>
-        @endif
-      </ul>
-    </section>
-  </aside>
-  <!-- End Sidebar -->
-
-  <!-- Content -->
-  <div class="content-wrapper">
-    <section class="content-header">
-      <h1>
-        @yield('title')
-      </h1>
-      <ol class="breadcrumb">
-        @section('breadcrumb')
-        <li>
-          <a href="#">
-            <i class="fa fa-home"></i>
-            Home
-          </a>
-          @show
-        </li>
-      </ol>
-    </section>
-
-    <section class="content">
-      @yield('content')
-    </section>
+<!-- Sticky Footer -->
+<footer class="sticky-footer">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright © Your Website 2019</span>
   </div>
-  <!-- End Content -->
+</div>
+</footer>
 
-  <!-- Footer -->
-  <footer class="main-footer">
-    <div class="pull-right hidden-xs">
-      Raka Fajar Salinggih
-    </div>   
-  </footer>
+</div>
+<!-- /.content-wrapper -->
 
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="dist/js/adminlte.min.js"></script>
+</div>
+<!-- /#wrapper -->
 
-  @yield('script')
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Page level plugin JavaScript-->
+<script src="vendor/chart.js/Chart.min.js"></script>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin.min.js"></script>
+
+<!-- Demo scripts for this page-->
+<script src="js/demo/datatables-demo.js"></script>
+<script src="js/demo/chart-area-demo.js"></script>
+@yield('script')
+
 </body>
+
 </html>

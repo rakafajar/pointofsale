@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-        return view('home.admin');
+
+        if (Auth::user()->level == 1) {
+            return view('home.admin');
+        } else {
+            return view('home.kasir');
+        }
     }
 }
