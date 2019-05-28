@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kategori;
+use Auth;
 
 class KategoriController extends Controller
 {
@@ -14,7 +15,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return view('kategori.index')
+        return view('kategori.index');
     }
 
     public function listdata()
@@ -55,7 +56,9 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $kategori = new Kategori;
+        $kategori ->nama_kategori = $request['nama'];
+        $kategori->save();
     }
 
     /**
@@ -77,7 +80,8 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kategori = Kategori::find($id);
+        echo json_encode($kategori);
     }
 
     /**
@@ -89,7 +93,8 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kategori = Kategori::find($id);
+        $kategori->nama_kategori = $request['nama']; 
     }
 
     /**
@@ -100,6 +105,7 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kategori = Kategori::find($id);
+        $kategori->delete();
     }
 }
